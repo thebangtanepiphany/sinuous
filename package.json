@@ -1,0 +1,24 @@
+{
+  "name": "palettes",
+  "version": "1.0.0",
+  "description": "dynamically generated color palettes",
+  "main": "index.js",
+  "dependencies": {
+    "chibijs": "^3.0.9",
+    "d3": "^5.15.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdaByronLovelace/palettes.git"
+  },
+  "author": "Emily Smith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdaByronLovelace/palettes/issues"
+  },
+  "homepage": "https://adabyronlovelace.github.io/palettes/",
+  "scripts": {
+    "start": "watchify index.js -o bundle.js"
+  }
+}
