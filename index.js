@@ -1,14 +1,9 @@
 // Modules
-let d3 = require('D3')
+let d3 = require('d3')
 require('chibijs')
 
 // Globals
 let dots = []
-let $sqr = $(".box.coords")
-let $lines = $(".box.lines")
-let $result = $(".result")
-let $clear = $(".clear")
-let $curve = $(".curve")
 let curveList = [
   {"curve":d3.curveLinear,"title":"Linear"},
   {"curve":d3.curveStep,"title":"Step"},
@@ -31,12 +26,10 @@ let makeDot = (x, y) => {
 } 
 
 let printResults = () => {
-  let print = dots.length > 0 ? JSON.stringify(dots) : ""
-  $result.html(print)
+  return dots.length > 0 ? JSON.stringify(dots) : ""
 }
 
 let printLines = () => {
-  $lines.html("")
   let lineFunction = d3.line()    
     .x(function(d) { return d.x; })
     .y(function(d) { return d.y; })
@@ -55,23 +48,33 @@ let printLines = () => {
 
 // Main
 $().ready(() => {
+	let $sqr = $(".box.coords")
+	let $lines = $(".box.lines")
+	let $result = $(".result")
+	let $clear = $(".clear")
+	let $curve = $(".curve")
 	$sqr.on("click", e => {
+    console.log(e)
     dots.push({x: e.offsetX, y: e.offsetY})
     $sqr.htmlAppend(makeDot(e.offsetX, e.offsetY))
-    printResults()
+		$result.html(printResults())
+		$lines.html("")
     if (dots.length > 1) printLines()
   })
   $clear.on("click", e => {
+		console.log(e)
     $sqr.html("")
     $lines.html("")
     dots = []
-    printResults()
+    $result.html(printResults())
   })
   $curve.on("click", e => {
+		console.log(e)
     if (curveInd < curveList.length - 1) curveInd++
     else curveInd = 0
     console.log(curveInd)
-    $curve.html(`Curve Fn: ${curveList[curveInd].title}`)
+		$curve.html(`Curve Fn: ${curveList[curveInd].title}`)
+		$lines.html("")
     if (dots.length > 1) printLines()
   })
 });
