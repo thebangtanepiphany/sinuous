@@ -95,7 +95,10 @@ button:hover {
 }
 
 .box.coords {
-  background-image: url(ly9.jpg);
+  background-image: url(ly14.png);
+  background-position: 0 0;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .box.lines svg {

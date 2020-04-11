@@ -15,6 +15,8 @@ let curveList = [
   {"curve":d3.curveNatural,"title":"Natural"}
 ];
 let curveInd = 0
+let imageList = ["ly14.png", "ly15.png","ly16.png",""]
+let imageInd = 0
 
 // Helper Functions
 let randColor = () => {
@@ -53,28 +55,34 @@ $().ready(() => {
 	let $result = $(".result")
 	let $clear = $(".clear")
 	let $curve = $(".curve")
+	let $image = $(".image")
+
 	$sqr.on("click", e => {
-    console.log(e)
     dots.push({x: e.offsetX, y: e.offsetY})
     $sqr.htmlAppend(makeDot(e.offsetX, e.offsetY))
 		$result.html(printResults())
 		$lines.html("")
     if (dots.length > 1) printLines()
-  })
+	})
+	
   $clear.on("click", e => {
-		console.log(e)
     $sqr.html("")
     $lines.html("")
     dots = []
     $result.html(printResults())
-  })
+	})
+	
   $curve.on("click", e => {
-		console.log(e)
     if (curveInd < curveList.length - 1) curveInd++
     else curveInd = 0
-    console.log(curveInd)
 		$curve.html(`Curve Fn: ${curveList[curveInd].title}`)
 		$lines.html("")
     if (dots.length > 1) printLines()
-  })
+	})
+	
+	$image.on("click", e => {
+		if (imageInd < imageList.length - 1) imageInd++
+    else imageInd = 0
+    $sqr.css("background-image", `url(${imageList[imageInd]})`)
+	})
 });
