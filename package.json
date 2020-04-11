@@ -4,8 +4,10 @@
   "description": "dynamically generated color palettes",
   "main": "index.js",
   "dependencies": {
-    "chibijs": "^3.0.9",
-    "d3": "^5.15.1"
+    "d3": "^5.15.1",
+    "gradient-path": "^2.1.0",
+    "jquery": "^3.5.0",
+    "tinygradient": "^1.1.1"
   },
   "devDependencies": {},
   "repository": {
