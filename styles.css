@@ -95,7 +95,6 @@ button:hover {
 }
 
 .box.coords {
-  background-image: url(ly14.png);
   background-position: 0 0;
   background-size: 100%;
   background-repeat: no-repeat;
@@ -135,9 +134,20 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(148deg, rgba(0,0,0,1) 0%, rgba(9,9,121,1) 36%, rgba(87,8,152,1) 73%, rgba(74,74,74,1) 100%);
  }
 
 .anim-container svg {
   width: 500px;
   height: 500px;
+}
+
+.credit {
+  position: absolute;
+  margin-top: 190px;
+  font-variant: small-caps;
+  font-size: 25px;
+  font-weight: 600;
+  color: #60e4e1;
+  font-family: 'Comic Neue', cursive;
 }
